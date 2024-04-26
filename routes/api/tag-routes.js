@@ -46,8 +46,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   // create a new tag
   try {
-    const newTag = req.body.name // category name is inputted
-    const tag = await Tag.create({ tag_name: newTag })
+    const tag = await Tag.create(req.body)
 
     res.json(tag)
   } catch (err) {
